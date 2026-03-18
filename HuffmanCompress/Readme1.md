@@ -45,6 +45,7 @@
     - 解压文件生成于同目录，还原为原始 BMP 图片
 
 ### 项目结构
+```Plain Text
 
 HuffmanCompress/
 ├── 头文件/
@@ -57,3 +58,6 @@ HuffmanCompress/
 │   ├── Huffman.cpp   # 哈夫曼核心算法实现
 │   └── Main.cpp      # 控制台交互入口
 └── HuffmanCompress.sln  # 工程文件
+```
+
+---
