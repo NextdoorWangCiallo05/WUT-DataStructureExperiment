@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "compress.h"
-
-// ========== 原有压缩相关实现（不变） ==========
+
 int InitHead(const char* pFilename, HEAD& sHead) {
     strcpy(sHead.type, "HUF");
     sHead.length = 0;
