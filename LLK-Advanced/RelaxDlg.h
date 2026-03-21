@@ -23,6 +23,7 @@ protected:
     afx_msg void OnPaint();
     afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
     afx_msg void OnBnClickedBtnStart();
+    afx_msg void OnBnClickedBtnPause();
     afx_msg void OnBnClickedBtnTip();
     afx_msg void OnBnClickedBtnReset();
     afx_msg void OnBnClickedBtnSetting();

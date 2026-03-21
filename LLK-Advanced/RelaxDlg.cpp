@@ -28,6 +28,7 @@ BEGIN_MESSAGE_MAP(CRelaxDlg, CDialogEx)
     ON_WM_PAINT()
     ON_WM_LBUTTONUP()
     ON_BN_CLICKED(IDC_BTN_START, &CRelaxDlg::OnBnClickedBtnStart)
+    ON_BN_CLICKED(IDC_BTN_PAUSE, &CRelaxDlg::OnBnClickedBtnPause)
     ON_BN_CLICKED(IDC_BTN_TIP, &CRelaxDlg::OnBnClickedBtnTip)
     ON_BN_CLICKED(IDC_BTN_RESET, &CRelaxDlg::OnBnClickedBtnReset)
     ON_BN_CLICKED(IDC_BTN_SET, &CRelaxDlg::OnBnClickedBtnSetting)
@@ -50,7 +51,6 @@ BOOL CRelaxDlg::OnInitDialog()
     m_bPlaying = false;
     m_bFirstSel = true;
 
-    // 删除固定 MoveWindow(800x600)
     CenterWindow();
 
     m_rtGameRect.SetRect(GAME_TOP_X, GAME_TOP_Y,
@@ -197,6 +197,16 @@ void CRelaxDlg::OnBnClickedBtnTip()
     else
         MessageBox(_T("无可消除路径，试试重排~"), _T("提示"), MB_OK | MB_ICONINFORMATION);
 }
+
+void CRelaxDlg::OnBnClickedBtnPause()
+{
+    MessageBox(
+        _T("非计时模式无需暂停哦！"),
+        _T("提示"),
+        MB_OK | MB_ICONINFORMATION
+    );
+}
+
 
 void CRelaxDlg::OnBnClickedBtnReset()
 {

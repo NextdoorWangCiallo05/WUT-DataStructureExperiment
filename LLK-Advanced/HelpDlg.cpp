@@ -37,11 +37,9 @@ BOOL CHelpDlg::OnInitDialog()
     MoveWindow(0, 0, HELP_WND_WIDTH + nSpanW, HELP_WND_HEIGHT + nSpanH);
     CenterWindow();
 
-    // ===== 字体美化（类似 Word 观感）=====
+    // 字体美化
     m_fontUi.CreatePointFont(100, _T("SimSun"));
 
-    // 若你更想贴近英文版 Word，可改成：
-    // m_fontUi.CreatePointFont(110, _T("Calibri"));
 
     SetFont(&m_fontUi);
     ApplyDialogFont(this);

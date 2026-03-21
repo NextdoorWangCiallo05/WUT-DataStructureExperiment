@@ -2,6 +2,7 @@
 #include <gdiplus.h>
 #pragma comment(lib, "gdiplus.lib")
 
+// GDI+ 管理器，负责全局初始化和清理
 class CGdiPlusManager
 {
 public:

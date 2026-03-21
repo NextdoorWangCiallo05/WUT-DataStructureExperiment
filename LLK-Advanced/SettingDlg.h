@@ -3,6 +3,7 @@
 #include <afxcmn.h>
 #include <afxbutton.h>
 
+// 设置对话框尺寸（与资源定义一致）
 class CSettingDlg : public CDialogEx
 {
 public:

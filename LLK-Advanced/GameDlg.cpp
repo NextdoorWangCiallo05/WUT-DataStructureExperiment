@@ -30,6 +30,7 @@ BEGIN_MESSAGE_MAP(CGameDlg, CDialogEx)
     ON_WM_PAINT()
     ON_WM_LBUTTONUP()
     ON_BN_CLICKED(IDC_BTN_START, &CGameDlg::OnBnClickedBtnStart)
+    ON_BN_CLICKED(IDC_BTN_PAUSE, &CGameDlg::OnBnClickedBtnPause)
     ON_BN_CLICKED(IDC_BTN_TIP, &CGameDlg::OnBnClickedBtnTip)
     ON_BN_CLICKED(IDC_BTN_RESET, &CGameDlg::OnBnClickedBtnReset)
     ON_BN_CLICKED(IDC_BTN_SET, &CGameDlg::OnBnClickedBtnSetting)
@@ -223,6 +224,16 @@ void CGameDlg::OnLButtonUp(UINT nFlags, CPoint point)
 
     CDialogEx::OnLButtonUp(nFlags, point);
 }
+
+void CGameDlg::OnBnClickedBtnPause()
+{
+    MessageBox(
+        _T("非计时模式无需暂停哦！"),
+        _T("提示"),
+        MB_OK | MB_ICONINFORMATION
+    );
+}
+
 
 void CGameDlg::OnBnClickedBtnTip()
 {

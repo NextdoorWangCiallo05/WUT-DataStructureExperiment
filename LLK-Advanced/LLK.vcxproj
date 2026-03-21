@@ -184,6 +184,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameControl.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="TimedDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="GameControl.cpp" />
     <ClCompile Include="GameDlg.cpp" />

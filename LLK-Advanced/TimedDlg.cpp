@@ -207,14 +207,20 @@ void CTimedDlg::OnBnClickedBtnStart()
 
 void CTimedDlg::OnLButtonUp(UINT nFlags, CPoint pt)
 {
-    if (!m_bPlaying || !m_rtGameRect.PtInRect(pt))
+    // 暂停期间禁止棋盘操作
+    if (!m_bPlaying || m_bPaused || !m_rtGameRect.PtInRect(pt))
     {
-        CDialogEx::OnLButtonUp(nFlags, pt); return;
+        CDialogEx::OnLButtonUp(nFlags, pt);
+        return;
     }
 
     int r = (pt.y - m_rtGameRect.top) / ELEM_SIZE;
     int c = (pt.x - m_rtGameRect.left) / ELEM_SIZE;
-    if (m_gameCtr.GetElement(r, c) == BLANK) { CDialogEx::OnLButtonUp(nFlags, pt); return; }
+    if (m_gameCtr.GetElement(r, c) == BLANK)
+    {
+        CDialogEx::OnLButtonUp(nFlags, pt);
+        return;
+    }
 
     if (m_bFirstSel)
     {
@@ -225,7 +231,8 @@ void CTimedDlg::OnLButtonUp(UINT nFlags, CPoint pt)
     else
     {
         m_gameCtr.SetSecPoint(r, c);
-        Vertex path[4] = { 0 }; int n = 0;
+        Vertex path[4] = { 0 };
+        int n = 0;
         bool ok = m_gameCtr.Link(path, n);
         if (ok)
         {
@@ -245,6 +252,7 @@ void CTimedDlg::OnLButtonUp(UINT nFlags, CPoint pt)
         }
         m_bFirstSel = true;
     }
+
     CDialogEx::OnLButtonUp(nFlags, pt);
 }
 

@@ -3,6 +3,7 @@
 #include "global.h"
 #include <memory>
 #include <gdiplus.h>
+#include <afxdlgs.h>
 
 #define WND_WIDTH  800
 #define WND_HEIGHT 600
@@ -26,6 +27,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnPaint();
 	afx_msg void OnBnClickedBtnBasic();
 	afx_msg void OnBnClickedBtnRelax();
@@ -33,6 +35,7 @@ protected:
 	afx_msg void OnBnClickedBtnTimed();
 	afx_msg void OnClose();
 	afx_msg void OnBnClickedBtnMusicToggle();
+	afx_msg void OnBnClickedBtnAbout();
 	void UpdateMusicToggleText();
 	void CaptureInitialLayoutRatios();
 	void ApplyResponsiveLayout();

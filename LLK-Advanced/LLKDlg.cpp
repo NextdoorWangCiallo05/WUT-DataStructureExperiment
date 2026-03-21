@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "framework.h"
+#include "AboutDlg.h"
 #include "AudioManager.h"
 #include "LLK.h"
 #include "LLKDlg.h"
@@ -36,7 +37,9 @@ BEGIN_MESSAGE_MAP(CLLKDlg, CDialogEx)
     ON_WM_CLOSE()
     ON_BN_CLICKED(IDC_BTN_RANK, &CLLKDlg::OnBnClickedBtnRank)
     ON_BN_CLICKED(IDC_BTN_SETTING, &CLLKDlg::OnBnClickedBtnSetting)
+    ON_BN_CLICKED(IDC_BTN_ABOUT, &CLLKDlg::OnBnClickedBtnAbout)
     ON_BN_CLICKED(IDC_BTN_MUSIC_TOGGLE, &CLLKDlg::OnBnClickedBtnMusicToggle)
+    ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 BOOL CLLKDlg::OnInitDialog()
@@ -72,6 +75,7 @@ void CLLKDlg::CaptureInitialLayoutRatios()
         IDC_BTN_SETTING,      // 设置
         IDC_BTN_RANK,         // 排行榜
         IDC_BTN_HELP,         // 帮助
+        IDC_BTN_ABOUT,
         IDC_BTN_MUSIC_TOGGLE  // 音乐开关
     };
 
@@ -166,7 +170,11 @@ void CLLKDlg::OnPaint()
         CPaintDC dc(this);
         Gdiplus::Graphics g(dc.GetSafeHdc());
         if (m_pngBG)
-            g.DrawImage(m_pngBG.get(), 0, 0, WND_WIDTH, WND_HEIGHT);
+        {
+            CRect rc;
+            GetClientRect(&rc);
+            g.DrawImage(m_pngBG.get(), 0, 0, rc.Width(), rc.Height());
+        }
         CDialogEx::OnPaint();
     }
 }
@@ -254,3 +262,19 @@ void CLLKDlg::UpdateMusicToggleText()
     if (btn) btn->SetWindowText(txt);
 }
 
+void CLLKDlg::OnBnClickedBtnAbout()
+{
+    CAboutDlg dlg;
+    dlg.DoModal();
+}
+
+void CLLKDlg::OnSize(UINT nType, int cx, int cy)
+{
+    CDialogEx::OnSize(nType, cx, cy);
+
+    if (cx <= 0 || cy <= 0) return;
+    if (!::IsWindow(GetSafeHwnd())) return;
+
+    ApplyResponsiveLayout();
+    Invalidate(FALSE);
+}
