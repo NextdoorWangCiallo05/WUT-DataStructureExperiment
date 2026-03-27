@@ -20,7 +20,7 @@
 
 ### 环境要求
 
-- 操作系统：Windows 11
+- 操作系统：Windows 11 10.0.26100
 
 - 开发工具：Microsoft Visual Studio 2022
 
